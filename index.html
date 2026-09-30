@@ -3,15 +3,35 @@
 <head>
 <meta charset="utf-8">
 <title>Hurling '92</title>
-<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no,viewport-fit=cover">
 <style>
-html,body{margin:0;height:100%;background:#000;overflow:hidden}
-body{display:flex;align-items:center;justify-content:center}
-canvas{image-rendering:pixelated;image-rendering:crisp-edges;background:#000}
+html,body{margin:0;height:100%;background:#000;overflow:hidden;overscroll-behavior:none;touch-action:none;-webkit-user-select:none;user-select:none;-webkit-touch-callout:none}
+body{display:flex;flex-direction:column;align-items:center;justify-content:center}
+canvas{image-rendering:pixelated;image-rendering:crisp-edges;background:#000;display:block}
+#touch{display:none;width:100%;height:150px;flex:none;position:relative;background:#000}
+body.touch{justify-content:flex-start}
+body.touch #touch{display:block}
+#stick{position:absolute;left:14px;bottom:14px;width:120px;height:120px;border-radius:50%;background:rgba(255,255,255,.12);border:2px solid #556;touch-action:none}
+#knob{position:absolute;left:38px;top:38px;width:44px;height:44px;border-radius:50%;background:#f8e020;opacity:.8;pointer-events:none}
+.btn{position:absolute;width:46px;height:46px;border-radius:50%;border:2px solid #fff;color:#fff;font:bold 10px monospace;background:#2a3a8a;touch-action:none;padding:0}
+.btn.on{background:#f8e020;color:#000}
+#b-shoot{right:12px;bottom:14px;width:66px;height:66px;background:#c02010}
+#b-hook{right:18px;bottom:90px}
+#b-solo{right:82px;bottom:84px}
+#b-stick{right:82px;bottom:30px}
+#b-hand{right:134px;bottom:57px}
 </style>
 </head>
 <body>
-<canvas id="c" width="320" height="200"></canvas>
+<canvas id="c" width="200" height="320"></canvas>
+<div id="touch">
+  <div id="stick"><div id="knob"></div></div>
+  <button class="btn" id="b-shoot" data-key="Space">SHOOT</button>
+  <button class="btn" id="b-solo" data-key="KeyZ">SOLO</button>
+  <button class="btn" id="b-stick" data-key="KeyX">PASS</button>
+  <button class="btn" id="b-hand" data-key="KeyC">HAND</button>
+  <button class="btn" id="b-hook" data-key="KeyV">HOOK</button>
+</div>
 <script src="game.js"></script>
 </body>
 </html>
