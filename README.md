@@ -28,3 +28,8 @@ A goal (under the bar) is worth 3, a point (over the bar, between the posts) 1.
 | Enter | Start / restart |
 
 Ball out over the sideline, wide shots, 65s, puck-outs and the four-step rule are all handled.
+
+## Screenshots
+
+![Title screen](screenshots/title.png)
+![Match kick-off](screenshots/match.png)
